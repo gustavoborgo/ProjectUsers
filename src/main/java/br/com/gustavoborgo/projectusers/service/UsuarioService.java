@@ -26,13 +26,13 @@ public void inserir(UsuarioDTO usuarioDTO) {
 }
 
     public UsuarioDTO alterar(UsuarioDTO usuarioDTO) {
-        UsuarioEntity asd = usuarioRepository.findById(usuarioDTO.getId())
+        UsuarioEntity asdasd = usuarioRepository.findById(usuarioDTO.getId())
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         // Atualiza apenas os campos desejados, ignorando o ID
-        BeanUtils.copyProperties(usuarioDTO, asd, "id");
+        BeanUtils.copyProperties(usuarioDTO, asdasd, "id");
 
-        return new UsuarioDTO(usuarioRepository.save(asd));
+        return new UsuarioDTO(usuarioRepository.save(asdasd));
     }
 
 public void excluir(Long id) {
