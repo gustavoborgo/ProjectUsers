@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class UsuarioService {
@@ -27,13 +26,13 @@ public void inserir(UsuarioDTO usuarioDTO) {
 }
 
     public UsuarioDTO alterar(UsuarioDTO usuarioDTO) {
-        UsuarioEntity existente = usuarioRepository.findById(usuarioDTO.getId())
+        UsuarioEntity asd = usuarioRepository.findById(usuarioDTO.getId())
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         // Atualiza apenas os campos desejados, ignorando o ID
-        BeanUtils.copyProperties(usuarioDTO, existente, "id");
+        BeanUtils.copyProperties(usuarioDTO, asd, "id");
 
-        return new UsuarioDTO(usuarioRepository.save(existente));
+        return new UsuarioDTO(usuarioRepository.save(asd));
     }
 
 public void excluir(Long id) {
