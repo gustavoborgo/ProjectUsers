@@ -31,7 +31,7 @@ public void inserir(UsuarioDTO usuarioDTO) {
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
 
         // Atualiza apenas os campos desejados, ignorando o ID
-        BeanUtils.copyProperties(usuarioDTO, existente, "id");
+        BeanUtils.copyProperties(usuarioDTO, existen, "id");
 
         return new UsuarioDTO(usuarioRepository.save(existent));
     }
